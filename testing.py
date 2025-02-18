@@ -7,10 +7,6 @@ from tkinter import messagebox
 ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("green") 
 
-# Function to calculate required GPA, not implemented yet
-def calculate_required_gpa():
-    messagebox.showinfo("yeet")
-
 # Create main window
 app = ctk.CTk()
 app.title("Financial Aid Calculator")
@@ -41,6 +37,15 @@ total_credits_entry.grid(row=0, column=1, padx=10, pady=5)
 current_gpa_entry.grid(row=1, column=1, padx=10, pady=5)
 completed_credits_entry.grid(row=2, column=1, padx=10, pady=5)
 
+# Output section
+output = ctk.CTkLabel(frame, text="Estimated GPA", font=("Arial", 14), fg_color="green4", text_color="white")
+
+# Function to calculate required GPA, not implemented yet
+def calculate_required_gpa():
+    current_gpa = current_gpa_entry.get()
+    output.configure(text=f"Estimated GPA: {current_gpa}")
+
+
 # calculate button with better hover and pressed colors
 calculate_button = ctk.CTkButton(
     app,
@@ -50,6 +55,8 @@ calculate_button = ctk.CTkButton(
     hover_color="#1F731F"
 )
 calculate_button.pack(pady=20)
+
+output.grid(row=3, column=0, columnspan=2, pady=0)
 
 # runs the app
 app.mainloop()
