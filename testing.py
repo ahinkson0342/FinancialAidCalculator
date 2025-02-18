@@ -11,7 +11,7 @@ ctk.set_default_color_theme("green")
 app = ctk.CTk()
 app.title("Financial Aid Calculator")
 app.geometry("400x300")  # Window size
-app.resizable(False, False)  # Prevent resizing
+app.resizable(True, True)  # Prevent resizing
 
 # changes the window logo to the green river college logo
 icon_path = os.path.join("images", "grc-logo.ico")
