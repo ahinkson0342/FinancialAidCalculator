@@ -2,6 +2,7 @@ import customtkinter as ctk
 import os
 from PIL import Image, ImageTk
 from tkinter import messagebox
+from backend import calculate
 
 # CustomTkinter settings
 ctk.set_appearance_mode("light")
@@ -26,24 +27,31 @@ frame.pack(pady=10, padx=20, fill="both", expand=True)
 
 # labels and entries
 ctk.CTkLabel(frame, text="Total Program Credits:").grid(row=0, column=0, padx=10, pady=5, sticky="w")
-ctk.CTkLabel(frame, text="Current GPA:").grid(row=1, column=0, padx=10, pady=5, sticky="w")
-ctk.CTkLabel(frame, text="Completed Credits:").grid(row=2, column=0, padx=10, pady=5, sticky="w")
+ctk.CTkLabel(frame, text="Completed Credits:").grid(row=1, column=0, padx=10, pady=5, sticky="w")
+ctk.CTkLabel(frame, text="Current GPA:").grid(row=2, column=0, padx=10, pady=5, sticky="w")
+ctk.CTkLabel(frame, text="Target GPA:").grid(row=3, column=0, padx=10, pady=5, sticky="w")
 
 total_credits_entry = ctk.CTkEntry(frame, width=150)
-current_gpa_entry = ctk.CTkEntry(frame, width=150)
 completed_credits_entry = ctk.CTkEntry(frame, width=150)
+current_gpa_entry = ctk.CTkEntry(frame, width=150)
+target_gpa_entry = ctk.CTkEntry(frame, width=150)
 
 total_credits_entry.grid(row=0, column=1, padx=10, pady=5)
-current_gpa_entry.grid(row=1, column=1, padx=10, pady=5)
-completed_credits_entry.grid(row=2, column=1, padx=10, pady=5)
+completed_credits_entry.grid(row=1, column=1, padx=10, pady=5)
+current_gpa_entry.grid(row=2, column=1, padx=10, pady=5)
+target_gpa_entry.grid(row=3, column=1, padx=10, pady=5)
 
 # Output section
 output = ctk.CTkLabel(frame, text="Estimated GPA", font=("Arial", 14), fg_color="green4", text_color="white")
 
 # Function to calculate required GPA, not implemented yet
 def calculate_required_gpa():
-    current_gpa = current_gpa_entry.get()
-    output.configure(text=f"Estimated GPA: {current_gpa}")
+    total_credits = int(total_credits_entry.get())
+    completed_credits = int(completed_credits_entry.get())
+    current_gpa = float(current_gpa_entry.get())
+    target_gpa = float(target_gpa_entry.get())
+    result = calculate(total_credits, completed_credits, target_gpa, current_gpa)
+    output.configure(text=f"Estimated GPA: {result}")
 
 
 # calculate button with better hover and pressed colors
@@ -56,7 +64,7 @@ calculate_button = ctk.CTkButton(
 )
 calculate_button.pack(pady=20)
 
-output.grid(row=3, column=0, columnspan=2, pady=0)
+output.grid(row=4, column=0, columnspan=2, pady=0)
 
 # runs the app
 app.mainloop()
