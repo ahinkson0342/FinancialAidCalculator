@@ -1,4 +1,5 @@
 import customtkinter as ctk
+import sys
 import os
 from PIL import Image, ImageTk
 from tkinter import messagebox
@@ -14,8 +15,14 @@ app.title("Financial Aid Calculator")
 app.geometry("600x500") 
 app.resizable(True, True) 
 
+# Get correct directory path when running as a PyInstaller bundle
+if getattr(sys, 'frozen', False):
+    base_path = sys._MEIPASS  # PyInstaller temp directory
+else:
+    base_path = os.path.abspath(os.path.dirname(__file__))
+
 # Change the window logo to the green river college logo
-icon_path = os.path.join("images", "calculator.ico")
+icon_path = os.path.join(base_path, "images", "calculator.ico")
 icon_image = Image.open(icon_path)
 
 # Set the window icon
