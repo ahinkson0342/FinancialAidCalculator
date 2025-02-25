@@ -15,7 +15,7 @@ app.geometry("600x500")
 app.resizable(True, True) 
 
 # Change the window logo to the green river college logo
-icon_path = os.path.join("images", "calculator.png")
+icon_path = os.path.join("images", "calculator.ico")
 icon_image = Image.open(icon_path)
 
 # Set the window icon
