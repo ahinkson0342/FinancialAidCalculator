@@ -23,10 +23,7 @@ else:
 
 # Change the window logo to the green river college logo
 icon_path = os.path.join(base_path, "images", "calculator.ico")
-icon_image = Image.open(icon_path)
-
-# Set the window icon
-app.iconphoto(False, ImageTk.PhotoImage(icon_image))
+app.iconbitmap(icon_path)  # Use iconbitmap for .ico files in Tkinter
 
 # App title
 title_label = ctk.CTkLabel(app, text="Financial Aid Calculator", font=("Arial", 22, "bold"))
@@ -62,7 +59,7 @@ def show_help():
     messagebox.showinfo("Help", "This calculator calculates the GPA a student needs to achieve with their remaining credits to reach a minimum 2.0 CGPA")
 
 
-# Add "?" help icon in the top right corner
+# Add "?" help icon in the top left corner
 help_button = ctk.CTkButton(
     app, 
     text="?", 
@@ -77,7 +74,7 @@ help_button = ctk.CTkButton(
 )
 
 # Initially place the button
-help_button.place(x=app.winfo_width() - 195, y=10)
+help_button.place(x=10, y=10)
 
 
 

@@ -23,7 +23,7 @@ def calculate(total_credit, current_credit, target_gpa, current_gpa):
         return "Target GPA already achieved!" if current_gpa >= target_gpa else "Target GPA not achievable."
 
     # Calculate the required GPA for remaining credits
-    required_gpa = ((target_gpa * total_credit) - (current_gpa * current_credit)) / remaining_credit
+    required_gpa = round(((target_gpa * total_credit) - (current_gpa * current_credit)) / remaining_credit, 2)
 
     # Ensure GPA is within possible bounds
     if required_gpa > 4.0:

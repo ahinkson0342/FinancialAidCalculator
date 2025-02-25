@@ -5,7 +5,7 @@ a = Analysis(
     ['app.py'],
     pathex=[],
     binaries=[],
-    datas=[('images', 'images'), ('backend.py', '.')],
+    datas=[('images\\calculator.ico', 'images')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -35,11 +35,4 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['images/calculator.ico'],
-)
-app = BUNDLE(
-    exe,
-    name='app.app',
-    icon='images/calculator.ico',
-    bundle_identifier=None,
 )
