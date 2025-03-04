@@ -1,10 +1,9 @@
 # Financial Aid Calculator (Windows)
 
-Financial Aid Calculator is a Windows application designed to assist users in estimating their eligibility for financial aid by implementing the Federal Expected Family Contribution (EFC) formula.
+Financial Aid Calculator is a Windows application designed to assist users in estimating their eligibility for financial aid.
 
 ## Features
 
-- **EFC Calculation**: Accurately computes the Expected Family Contribution based on user-provided financial information.
 - **User-Friendly Interface**: Simplifies data entry and presents results in an easily understandable format.
 
 ## Installation
